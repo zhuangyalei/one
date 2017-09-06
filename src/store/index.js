@@ -12,12 +12,18 @@ const store = new Vuex.Store({
     state: {
        today:{
        	content_list:[
-       		{}
+       		{
+       			share_info:{
+       				title:''
+       			}
+       		}
        	],
        	weather:{
        		date:'',
        	},
        },
+       imgShow:false,
+       
     }, 
 	getters,
 	mutations,

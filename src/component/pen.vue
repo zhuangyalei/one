@@ -88,10 +88,10 @@
 	opacity: .7;
 }
 .pen .forward{
-	margin: .7rem .4rem;
+	margin: .3rem .4rem;
 	padding: .5rem;
 	width: 10rem;
-	height: 3rem;
+	height: 5rem;
 	border-radius:.5rem ;
 	opacity: 1;
 }

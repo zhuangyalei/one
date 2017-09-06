@@ -1,7 +1,7 @@
 <template>
 	
 	<div id="inset">
-		<img :src= 'content0.img_url' />
+		<img :src= 'content0.img_url'  @click='showImg'/>
 		<p class="name">{{content0.title}} | {{content0.pic_info}}</p>
 		<p class="forward">{{content0.forward}}</p>
 		<p class="wordsInfo">{{content0.words_info}}</p>
@@ -27,6 +27,11 @@
 			},
 			
 		},
+		methods:{
+			showImg(){
+				this.$store.commit('showImg')
+			}
+		}
 	}
 </script>
 

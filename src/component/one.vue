@@ -1,7 +1,7 @@
 <template>
 	<div id="one">
 		
-		<div class="preWrap">
+		<!--<div class="preWrap">
 			<router-link to = '/day' tag='div' class='title'>
 				{{today}}
 				<div>
@@ -10,15 +10,17 @@
 					<span>{{weather.temperature}}℃</span>
 				</div>
 			</router-link>
+			 
 			<scroller 
 				:on-refresh="refresh"
 				ref="myscroller">
 				<Inset></Inset>
 				<content-list ></content-list>
 			</scroller>
-		</div>
-		
+		</div>-->
+		<one-Masks></one-Masks>
 		<div class="nowWrap">
+			
 			<router-link to = '/day' tag='div' class='title'>
 				{{today}}
 				<div>
@@ -31,10 +33,12 @@
 				:on-refresh="refresh"
 				ref="myscroller">
 				<Inset></Inset>
+				<today-news></today-news>
 				<content-list ></content-list>
+				
 			</scroller>
+			
 		</div>
-		
 		
 		<foot-nave></foot-nave>
 	</div> 
@@ -45,6 +49,8 @@
 import Inset from '@/component/inset';
 import footNave from '@/component/footNave';
 import contentList from '@/component/contentList';
+import oneMasks from '@/component/mask';
+import todayNews from '@/component/todayNews';
 import $ from 'jquery'
 import Vue from 'vue';
 import VueScroller from 'vue-scroller';
@@ -60,7 +66,9 @@ export default {
   	components: {
 	    footNave,
 	    Inset,
-	    contentList
+	    contentList,
+	    oneMasks,
+	    todayNews
    },
 	computed:{
 		today() {
@@ -82,33 +90,27 @@ export default {
 	},
 	methods:{
 	    refresh() {
-	        this.$store.dispatch('oneLogin')
+	        this.$store.dispatch('oneLogin',this.numb)
 	    },
-		movebox(){
-			
-		}
     }
 }
 </script>
 
 
 <style scoped>
+#one{
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
 #one .movebox{
 	width: 2rem;
 	height: 2rem;
 	background: red;
 }
-#one .preWrap{
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: -100%;
-}
 #one .nowWrap{
 	width: 100%;
 	height: 100%;
-	position: absolute;
 	top: 0;
 	left:0;
 }
@@ -123,7 +125,7 @@ export default {
 	font: .6rem/.6rem "微软雅黑";
 	text-align: center;
 	background: white;
-	z-index: 1000;
+	z-index: 10;
 }
 #one .title span{
 	font: .3rem/.3rem "微软雅黑";

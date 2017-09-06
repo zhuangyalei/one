@@ -35,7 +35,7 @@ export default {
 <style scoped>
 	
 .weui-tabbar {
-	position: fixed !important;
+	position: fixed ;
 }
 	
 </style>
