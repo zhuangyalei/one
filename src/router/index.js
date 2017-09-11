@@ -5,7 +5,7 @@ import all from '@/component/all'
 import me from '@/component/me'
 import day from '@/component/day'
 import pen from '@/component/pen'
-import read from '@/component/read'
+import detail from '@/component/detail'
 Vue.use(Router)
 
 export default new Router({
@@ -37,9 +37,9 @@ export default new Router({
     	component:pen
     },
     {
-    	path:'/read',
-    	name:'read',
-    	component:read
+    	path:'/detail/:id/:type',
+    	name:'detail',
+    	component:detail
     },
   ]
 })

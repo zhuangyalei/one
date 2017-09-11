@@ -22,8 +22,9 @@ const store = new Vuex.Store({
        		date:'',
        	},
        },
-       imgShow:false,
-       
+       imgShow:false
+		detailData:null,
+		allSwiper:null
     }, 
 	getters,
 	mutations,

@@ -9,7 +9,7 @@
          	 </p>
           	<ul  ref='todaynews'>
             	<li v-for='data,index in shareList' >
-              		<router-link to="/all" class='clearFix' >
+              		<router-link :to="'/detail/'+data.id+'/'+data.content_type" class='clearFix' >
 	                  	<i class="fa fa-angle-right" aria-hidden="true"></i>
 	                  	<div class="title">
 	                    	<p>{{data.category}}</p>
@@ -43,6 +43,7 @@ export default {
 			let shareData = [];
 			for(var i = 1; i < share.length; i++) {
 				shareData.push({
+					id:share[i].item_id,
 					category: share[i].share_list.wx.title.split('|')[0].trim(),
 					title: share[i].title,
 					content_type: share[i].content_type,
@@ -75,7 +76,6 @@ export default {
 <style scoped>
   #todayNews {
     margin-top: .15rem;
-    padding: .1rem .3rem;
    	border-bottom: .2rem solid #F1F1F1;
   }
   .dir {

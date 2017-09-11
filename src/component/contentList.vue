@@ -1,6 +1,6 @@
 <template>
 	<ul id="contentList">
-		<router-link class='contents' to='/read' tag='li' v-for = 'contents in content'>
+		<router-link class='contents' :to="'/detail/'+contents.item_id+'/'+contents.content_type" tag='li' v-for = 'contents in content'>
 			<p class="contenTitle">-{{contents.share_list.wx.title.slice(0,contents.share_list.wx.title.indexOf('|'))}}-</p>
 			<p class="contenName">{{contents.title}}</p>
 			<p class='auther'>{{contents.share_list.wx.desc.slice(0,contents.share_list.wx.desc.indexOf(' '))}}</p>
@@ -28,6 +28,9 @@
 				return this.$store.getters.today.weather.date.split('-').slice(1,3).join('月')+'日';	
 			},
 		},
+		methods:{
+			
+		}
 	}
 </script>
 

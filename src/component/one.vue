@@ -1,23 +1,5 @@
 <template>
 	<div id="one">
-		
-		<!--<div class="preWrap">
-			<router-link to = '/day' tag='div' class='title'>
-				{{today}}
-				<div>
-					<span>{{weather.city_name}}</span>
-					<span>{{weather.climate}}</span>
-					<span>{{weather.temperature}}℃</span>
-				</div>
-			</router-link>
-			 
-			<scroller 
-				:on-refresh="refresh"
-				ref="myscroller">
-				<Inset></Inset>
-				<content-list ></content-list>
-			</scroller>
-		</div>-->
 		<one-Masks></one-Masks>
 		<div class="nowWrap">
 			
@@ -35,7 +17,6 @@
 				<Inset></Inset>
 				<today-news></today-news>
 				<content-list ></content-list>
-				
 			</scroller>
 			
 		</div>

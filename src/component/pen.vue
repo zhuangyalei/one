@@ -1,7 +1,8 @@
 <template>
 
 	<div class="pen">
-		 <x-header :left-options="{backText: ''}" title="小记">
+		 <x-header :left-options="{backText: 'back'}" title="小记">
+		 	<i slot='overwrite-left' class="fa fa-chevron-left" aria-hidden="true" @click="back"></i>
 		 	<i slot='right' class="fa fa-long-arrow-down" aria-hidden="true"></i>
 		 </x-header>
 	
@@ -39,7 +40,11 @@
 				return this.$store.getters.today.content_list[0]
 			},
 		},
-		
+		methods:{
+			back(){
+				this.$router.go(-1)
+			}
+		}
 	}
 </script>
 
@@ -66,11 +71,11 @@
 .pen .fa-long-arrow-down{
 	color: #000000
 }
-.pen .left-arrow:before{
-	border-color:#000000 !important;
+.pen .fa-chevron-left{
+	color:#000000 
 }
 .pen .time{
-	padding: .5rem 0;
+	padding: .2rem 0;
 	font: .6rem/.6rem "微软雅黑";
 	text-align: center;
 	background: #FFFFFF;

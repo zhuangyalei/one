@@ -7,6 +7,12 @@ let mutations= {
 		},
 		hideMaskImg(state){
 			state.imgShow = false;
+		},
+		updateDetail(state,data){
+			state.detailData=data;
+		}
+		getAllswiper(state,data){
+			state.allSwiper=data;
 		}
 	}
 export default mutations;
