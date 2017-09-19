@@ -73,8 +73,83 @@ console.log(item.id,item.type)
 				.then(response=>{
 					return response.json();
 				}).then(data=>{
-					console.log(data.data)
+			
+			console.log(data.data)
 					store.commit('getAllswiper',data.data)
+				})
+		},
+		setType(store,item){
+			let date = new Date();
+			let year = date.getFullYear();
+			let month = date.getMonth()+1;
+			fetch(`/napi/${item}/bymonth/${year}-${month}`)
+				.then(response=>{
+					return response.json();
+				}).then(data=>{
+					if(item=='essay'){
+						console.log(data.data)
+						store.commit('getEssay',data.data)
+					}else if(item=='serialcontent'){
+						console.log(data.data)
+						store.commit('getSerialcontent',data.data)
+					}else if(item=='question'){
+						console.log(data.data)
+						store.commit('getQuestion',data.data)
+					}else if(item=='music'){
+						console.log(data.data)
+						store.commit('getMusic',data.data)
+					}
+					store.state.initloading = true;
+				})
+		},
+		
+		refresh(store,item){
+			let date = new Date();
+			let year = date.getFullYear();
+			let month = date.getMonth()+1;
+			return fetch(`/napi/${item.type}/bymonth/${year}-${month}`)
+				.then(response=>{
+					return response.json();
+				}).then(data=>{
+					if(item=='essay'){
+						console.log('essay')
+						store.commit('getEssay',data.data)
+					}else if(item=='serialcontent'){
+						console.log('serialcontent')
+						store.commit('getSerialcontent',data.data)
+					}else if(item=='question'){
+						console.log('question')
+						store.commit('getQuestion',data.data)
+					}else if(item=='music'){
+						console.log('music')
+						store.commit('getMusic',data.data)
+					}
+					return Promise.resolve();
+				})
+		},
+		infinite(store,item){
+			console.log('infinite')
+			let date = new Date();
+			let year = date.getFullYear();
+			return fetch(`/napi/${item.type}/bymonth/${year}-${item.month}`)
+				.then(response=>{
+					return response.json();
+				}).then(data=>{
+					console.log(data)
+					if(item.type=='essay'){
+						console.log('data.data')
+						store.commit('newgetEssay',data.data);
+					}else if(item.type=='serialcontent'){
+						console.log('serialcontent')
+						store.commit('newgetSerialcontent',data.data);
+					}else if(item.type=='question'){
+						console.log('question')
+						store.commit('newgetQuestion',data.data);
+					}else if(item.type=='music'){
+						console.log('music')
+						store.commit('newgetMusic',data.data);
+					}
+					return Promise.resolve();
 				})
 		}
 	}

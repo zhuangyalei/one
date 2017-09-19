@@ -45,6 +45,11 @@
 		  	</article>
 		</div>
 		<div class='main' v-else-if='type == 4'>
+			<x-header
+			:left-options="{backText: ''}"
+		  	>{{detailData.share_list.wx.title.slice(0,detailData.share_list.wx.title.indexOf('|'))}}
+		  	<i slot="right" class="fa fa-bookmark-o" aria-hidden="true"></i>
+		  	</x-header>
 			<div class="music" v-bind:style="{backgroundImage:`url(${detailData.feeds_cover})`}">
 				<img class="cover" :src="detailData.cover"/>
 				<p class="musicName">{{detailData.title}}{{detailData.author.user_name}}</p>

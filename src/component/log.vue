@@ -1,32 +1,38 @@
 <template>
-	<div id="me">
-		<div class="register">注册</div>
+	<div id="log"> 
 		<input ref='usename'  class="usename" type="text" placeholder="请输入账号"/>
 		<br />
 		<input ref='password' class="password" type="password" placeholder="请输入密码"/>
 		<br />
-		<span class="bt" @click="submit">登录</span>
-		<foot-nave></foot-nave>
+		<input ref='rePassword' class="rePassword" type="password" placeholder="请核对密码"/>
+		<br />
+		<span class="bt" @click="submit">注册</span>
 	</div>
 </template>
 
 <script>
-	import footNave from '@/component/footNave';
-	export default{
-		components:{
-			footNave,
-		},
-		methods:{
-			submit(){
-				
+export default{
+	
+	methods:{
+		submit(){
+			let usename = this.$refs.usename.value;
+			let password = this.$refs.password.value;
+			let rePassword = this.$refs.rePassword.value;
+			if(password!=rePassword){
+				this.$vux.toast.text('两次密码不一致', 'middle')
+				return
 			}
+			this.$store.commit('setUsename',usename)
+			this.$store.commit('setPassword',password)
+			this.$store.commit('setRepassword',rePassword)
+			this.$vux.toast.text('注册成功', 'middle')
 		}
 	}
-	
+}
 </script>
 
 <style scoped>
-	#me{
+	#log{
 		height: 100%;
 		width: 100%;
 		text-align: center;
@@ -36,13 +42,6 @@
 		 				rgba(180, 120, 120,.9) 20%,
 		 				rgba(172, 120, 120, .9) 100%
 		 			);
-	}
-	.register{
-		position: absolute;
-		right: 0;
-		top: 0;
-		padding: .4rem;
-		color: white;
 	}
 	.usename{
 		margin-top:2rem ;

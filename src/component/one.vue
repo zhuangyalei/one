@@ -32,10 +32,6 @@ import footNave from '@/component/footNave';
 import contentList from '@/component/contentList';
 import oneMasks from '@/component/mask';
 import todayNews from '@/component/todayNews';
-import $ from 'jquery'
-import Vue from 'vue';
-import VueScroller from 'vue-scroller';
-Vue.use(VueScroller)
 
 export default {
 	name: 'one',

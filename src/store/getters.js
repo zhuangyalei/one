@@ -7,8 +7,21 @@ export default {
 	},
 	detailData(state){
 		return state.detailData
-	}
+	},
 	allSwiper(state){
 		return state.allSwiper
-	}
+	},
+	
+	essay(state){
+		return state.essay
+	},
+	serialcontent(state){
+		return state.serialcontent
+	},
+	question(state){
+		return state.question
+	},
+	music(state){
+		return state.music
+	},
 }

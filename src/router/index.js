@@ -6,6 +6,8 @@ import me from '@/component/me'
 import day from '@/component/day'
 import pen from '@/component/pen'
 import detail from '@/component/detail'
+import tabContent from '@/component/tabContent'
+
 Vue.use(Router)
 
 export default new Router({
@@ -19,7 +21,7 @@ export default new Router({
     {
     	path:'/all',
     	name:'all',
-    	component:all
+    	component:all,
     },
     {
     	path:'/me',
@@ -41,5 +43,14 @@ export default new Router({
     	name:'detail',
     	component:detail
     },
-  ]
+  ],
+//scrollBehavior (to, from, savedPosition) {
+//	if(to.name=='one'){
+//		return {
+//	    	x: 0,
+//	    	y: 0
+//	    }
+//	}
+//  
+//}
 })
